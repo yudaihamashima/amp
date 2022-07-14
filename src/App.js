@@ -17,9 +17,13 @@ function App() {
     fetchNotes();
   }, []);
 
-
-  const loginUsers = await Auth.currentAuthenticatedUser()
-  console.log(loginUsers)
+  
+  async function getCurrentUsers() {
+    const loginUsers = await Auth.currentAuthenticatedUser()
+    console.log(loginUsers)
+  }
+  
+  getCurrentUsers()
 
   async function onChange(e) {
     if (!e.target.files[0]) return
