@@ -5,6 +5,8 @@ import { listNotes } from './graphql/queries';
 import { createNote as createNoteMutation, deleteNote as deleteNoteMutation } from './graphql/mutations';
 import { API, Storage } from 'aws-amplify';
 
+import { Auth } from 'aws-amplify';
+
 const initialFormState = { name: '', description: '' }
 
 function App() {
@@ -14,6 +16,10 @@ function App() {
   useEffect(() => {
     fetchNotes();
   }, []);
+
+
+  const loginUsers = await Auth.currentAuthenticatedUser()
+  console.log(loginUsers)
 
   async function onChange(e) {
     if (!e.target.files[0]) return
