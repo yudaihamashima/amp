@@ -20,6 +20,7 @@ function App() {
   
   async function getCurrentUsers() {
     const loginUsers = await Auth.currentAuthenticatedUser()
+    console.log('-- users --')
     console.log(loginUsers)
   }
   
